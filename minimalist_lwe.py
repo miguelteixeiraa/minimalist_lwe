@@ -111,9 +111,9 @@ class MinimalistLWE:
 
     #
 
-    def min_decrypt(self, cyphertext: List[Tuple[int]], sk: int) -> Any:
+    def min_decrypt(self, ciphertext: List[Tuple[int]], sk: int) -> Any:
         decrypted_message = ""
-        for element in cyphertext:
+        for element in ciphertext:
             tmp_dec = (element[1] - sk * element[0]) % self._prime_q
             if tmp_dec < self._prime_q / 2:
                 decrypted_message += "0"
@@ -141,7 +141,7 @@ if __name__ == "__main__":
 
     encrypted_message = minimalistLWE.min_encrypt(90)
 
-    print(f"cyphertext: {encrypted_message}")
+    print(f"ciphertext: {encrypted_message}")
 
     decrypted_message = minimalistLWE.min_decrypt(encrypted_message, sk)
 
