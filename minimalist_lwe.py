@@ -52,7 +52,7 @@ class MinimalistLWE:
         sumASamples: int = 0
         sumBSamples: int = 0
 
-        number_of_samples = randint(2, self._integer_n)
+        number_of_samples = randint(2, 6)
 
         prev_index = 0
         for selectedSample in range(0, number_of_samples):
@@ -66,7 +66,7 @@ class MinimalistLWE:
         #
 
         u = sumASamples % self._prime_q
-        v = sumBSamples - (self._prime_q / 2) * bit
+        v = sumBSamples + (self._prime_q / 2) * bit
         v = v % self._prime_q
 
         return (u, v)
@@ -107,7 +107,6 @@ class MinimalistLWE:
                     encrypted_message.append(self._perform_u_v(int(bit)))
                 #
         #
-
         return encrypted_message
 
     #
